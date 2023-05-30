@@ -12,7 +12,7 @@ class AddNoteBottomSheet extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16),
       child: SingleChildScrollView(
-        child: Column(
+        child:  Column(
           children: [
             SizedBox(
               height: 24,
