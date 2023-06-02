@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:quick_notes/models/note_model.dart';
 import 'package:quick_notes/views/edit_note_view.dart';
 
 class NoteCard extends StatelessWidget {
-  const NoteCard({super.key});
-
+  const NoteCard({super.key, required this.note});
+  final NoteModel note;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -16,25 +17,25 @@ class NoteCard extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.only(top: 24, bottom: 24, left: 16),
         decoration: BoxDecoration(
-          color: Color(0xFFFFcc80),
+          color: Color(note.color),
           borderRadius: BorderRadius.circular(16),
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
             ListTile(
-              title: const Text(
-                'Flutter Tips',
-                style: TextStyle(
+              title: Text(
+                note.title,
+                style: const TextStyle(
                   color: Colors.black,
                   fontSize: 26,
                 ),
               ),
-              subtitle: const Padding(
-                padding: EdgeInsets.only(top: 10.0, bottom: 16),
+              subtitle: Padding(
+                padding: const EdgeInsets.only(top: 10.0, bottom: 16),
                 child: Text(
-                  'Build your career with Moustafa hesham',
-                  style: TextStyle(
+                  note.subTitle,
+                  style: const TextStyle(
                     color: Color(0xA6000000),
                     fontSize: 16,
                   ),
@@ -49,11 +50,11 @@ class NoteCard extends StatelessWidget {
                 ),
               ),
             ),
-            const Padding(
-              padding: EdgeInsets.only(right: 24),
+            Padding(
+              padding: const EdgeInsets.only(right: 24),
               child: Text(
-                'May 27, 2023',
-                style: TextStyle(color: Color(0xA6000000), fontSize: 14),
+                note.date,
+                style: const TextStyle(color: Color(0xA6000000), fontSize: 14),
               ),
             )
           ],

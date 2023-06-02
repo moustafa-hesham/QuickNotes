@@ -19,8 +19,10 @@ class NotesListView extends StatelessWidget {
             padding: EdgeInsets.zero,
             itemBuilder: (context, index) {
               return Padding(
-                padding: const EdgeInsets.symmetric(vertical: 4),
-                child: const NoteCard(),
+                padding: EdgeInsets.symmetric(vertical: 4),
+                child: NoteCard(
+                  note: notes[index],
+                ),
               );
             });
       },
